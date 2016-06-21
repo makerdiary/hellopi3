@@ -25,6 +25,7 @@ function start() {
                 ultrasonicSensor.on('change', function(res) {
                     console.log('Ultrasonic Ranger onChange value=' + res)
                 });
+                ultrasonicSensor.watch();
             }
         }
     });
