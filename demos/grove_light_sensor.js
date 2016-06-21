@@ -5,9 +5,6 @@ var LightAnalogSensor = GrovePi.sensors.LightAnalog;
 
 var board;
 
-// Connect the Grove Light Sensor to digital port A2
-var led = 4;
-
 function start() {
     console.log('starting...');
     board = new Board({
@@ -20,6 +17,7 @@ function start() {
             if(res) {
                 console.log('GrovePi Version : ' + board.version());
                 
+                // Connect the Grove Light Sensor to digital port A2                
                 var lightSensor = new LightAnalogSensor(2);
 
                 // Light Sensor 
