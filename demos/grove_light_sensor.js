@@ -5,7 +5,7 @@ var LightAnalogSensor = GrovePi.sensors.LightAnalog;
 
 var board;
 
-// Connect the Grove LED to digital port D4
+// Connect the Grove Light Sensor to digital port A2
 var led = 4;
 
 function start() {
@@ -21,11 +21,18 @@ function start() {
                 console.log('GrovePi Version : ' + board.version());
                 
                 var lightSensor = new LightAnalogSensor(2);
+
                 // Light Sensor
-                console.log('LIght Analog Sensor (start watch)');
+                console.log('Light Analog Sensor (start watch)');
+                
                 lightSensor.on('change', function(res) {
-                    console.log('Light onChange value=' + res);
+
+                    //Calculate resistance of sensor in K
+                    var val = (1023 - res) * 10 / res;
+
+                    console.log('Light onChange value: %.2f', val);
                 });
+
                 lightSensor.watch();
             }
         }
@@ -34,12 +41,12 @@ function start() {
 }
 
 function onExit(err) {
-  console.log('ending');
-  board.close();
-  process.removeAllListeners();
-  process.exit();
-  if (typeof err != 'undefined');
-    console.log(err);
+    console.log('ending');
+    board.close();
+    process.removeAllListeners();
+    process.exit();
+    if (typeof err != 'undefined')
+        console.log(err);
 }
 
 
