@@ -5,8 +5,6 @@ var DigitalInputSensor = GrovePi.sensors.DigitalInput;
 
 var board;
 
-// Connect the Grove Button to digital port D2
-
 function start() {
     console.log('starting...');
     board = new Board({
@@ -19,12 +17,15 @@ function start() {
             if(res) {
                 console.log('GrovePi Version : ' + board.version());
                 
-                var button = new DigitalInputSensor(2);
+                // Connect the Grove Button to digital port D2               
+                var groveButton = new DigitalInputSensor(2);
 
-                button.on('change', function(res) {
-                    console.log('Grove Button value= ' + res);
+                // Grove Button
+                console.log('Grove Button (start watch)');
+                groveButton.on('change', function(res) {
+                    console.log('Grove Button onChange value=' + res);
                 });
-                button.watch();
+                groveButton.watch();
             }
         }
     });
