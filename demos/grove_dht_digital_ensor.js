@@ -18,7 +18,7 @@ function start() {
                 console.log('GrovePi Version : ' + board.version());
                 
                 // Connect the Grove Temperature&Humidity Sensor to digital port D8                
-                var dhtSensor = new DHTDigitalSensor(8, DHTDigitalSensor.VERSION.DHT22, DHTDigitalSensor.CELSIUS);
+                var dhtSensor = new DHTDigitalSensor(8, DHTDigitalSensor.VERSION.DHT11, DHTDigitalSensor.CELSIUS);
                 // DHT Sensor
                 console.log('DHT Digital Sensor (start watch)');
                 dhtSensor.on('change', function(res) {
