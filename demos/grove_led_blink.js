@@ -32,7 +32,17 @@ function start() {
     }, 1000);
 }
 
+function onExit(err) {
+  console.log('ending');
+  board.close();
+  process.removeAllListeners();
+  process.exit();
+  if (typeof err != 'undefined');
+    console.log(err);
+}
 
 //start the app
 start();
 
+// catches ctrl+c event
+process.on('SIGINT', onExit);
