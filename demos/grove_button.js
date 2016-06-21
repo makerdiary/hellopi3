@@ -1,7 +1,7 @@
 var GrovePi = require('node-grovepi').GrovePi;
 var Commands = GrovePi.commands;
 var Board = GrovePi.board;
-var DigitalInputSensor = GrovePi.sensors.DigitalInput;
+var GenericDigitalInputSensor = GrovePi.sensors.DigitalInput;
 
 var board;
 
@@ -18,7 +18,7 @@ function start() {
                 console.log('GrovePi Version : ' + board.version());
                 
                 // Connect the Grove Button to digital port D2               
-                var groveButton = new DigitalInputSensor(2);
+                var groveButton = new GenericDigitalInputSensor(2);
 
                 // Grove Button
                 console.log('Grove Button (start watch)');
