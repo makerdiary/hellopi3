@@ -33,12 +33,13 @@ function start() {
 }
 
 function onExit(err) {
-  console.log('ending');
-  board.close();
-  process.removeAllListeners();
-  process.exit();
-  if (typeof err != 'undefined');
-    console.log(err);
+    console.log('closing...');
+    board.writeBytes(Commands.dWrite.concat([buzzer, 0, Commands.unused]));
+    board.close();
+    process.removeAllListeners();
+    process.exit();
+    if (typeof err != 'undefined')
+        console.log(err);
 }
 
 //start the app
