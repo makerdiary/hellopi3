@@ -1,0 +1,29 @@
+{
+  "name": "hellopi3",
+  "version": "0.0.1",
+  "description": "Getting started with Raspberry Pi 3 and GrovePi+",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/makerdiary/hellopi3.git"
+  },
+  "keywords": [
+    "Raspberry Pi 3",
+    "GrovePi+"
+  ],
+  "author": "Zelin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/makerdiary/hellopi3/issues"
+  },
+  "homepage": "https://github.com/makerdiary/hellopi3#readme",
+  "dependencies": {
+    "node-grovepi": "^2.0.9"
+  }
+}
