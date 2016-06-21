@@ -1,7 +1,7 @@
 var GrovePi = require('node-grovepi').GrovePi;
 var Commands = GrovePi.commands;
 var Board = GrovePi.board;
-var LightAnalogSensor = GrovePi.sensors.LightAnalogSensor;
+var LightAnalogSensor = GrovePi.sensors.LightAnalog;
 
 var board;
 
