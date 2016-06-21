@@ -1,7 +1,7 @@
 var GrovePi = require('node-grovepi').GrovePi;
 var Commands = GrovePi.commands;
 var Board = GrovePi.board;
-var GenericDigitalInputSensor = GrovePi.sensors.GenericDigitalInput;
+var GenericDigitalInputSensor = require('node-grovepi').sensors.genericDigitalInputSensor;
 
 var board;
 
