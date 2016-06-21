@@ -1,5 +1,5 @@
-var i2c = require('./node_modules/i2c-bus/i2c-bus');
-var sleep = require('./node_modules/sleep/');
+var i2c = require('../node_modules/node-grovepi/node_modules/i2c-bus/i2c-bus');
+var sleep = require('../node_modules/node-grovepi/node_modules/sleep/');
 var GrovePi = require('node-grovepi').GrovePi
 
 var Board = GrovePi.board
