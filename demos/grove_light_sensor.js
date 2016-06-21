@@ -1,7 +1,7 @@
 var GrovePi = require('node-grovepi').GrovePi;
 var Commands = GrovePi.commands;
 var Board = GrovePi.board;
-var LightAnalogSensor = GrovePi.sensors.LightAnalog;
+var LightAnalogSensor = GrovePi.sensors.LightAnalogSensor;
 
 var board;
 
@@ -22,18 +22,11 @@ function start() {
                 
                 var lightSensor = new LightAnalogSensor(2);
 
-                // Light Sensor
-                console.log('Light Analog Sensor (start watch)');
-                
-                lightSensor.on('change', function(res) {
-
-                    //Calculate resistance of sensor in K
-                    var val = (1023 - res) * 10 / res;
-
-                    console.log('Light onChange value: %.2f', val);
-                });
-
-                lightSensor.watch();
+                // Light Sensor 
+                setInterval(function() {
+                    var resistance = lightSensor.read();
+                    console.log('The resistance of Light Sensor: ' + resistance);
+                }, 1000);
             }
         }
     });
