@@ -1,7 +1,7 @@
 var GrovePi = require('node-grovepi').GrovePi;
 var Commands = GrovePi.commands;
 var Board = GrovePi.board;
-var GroveButton = GrovePi.sensors.genericDigitalInput;
+var GenericDigitalInputSensor = GrovePi.sensors.GenericDigitalInput;
 
 var board;
 
@@ -19,7 +19,7 @@ function start() {
             if(res) {
                 console.log('GrovePi Version : ' + board.version());
                 
-                var button = new GroveButton(2);
+                var button = new GenericDigitalInputSensor(2);
 
                 button.on('change', function(res) {
                     console.log('Grove Button value= ' + res);
