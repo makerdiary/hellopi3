@@ -29,7 +29,13 @@ function start() {
 
     setInterval(function() {
         lastButtonState = buttonState;
-        buttonState = board.writeBytes(Commands.dRead.concat([button, Commands.unused, Commands.unused]));
+        var writeRet = board.writeBytes(Commands.dRead.concat([button, Commands.unused, Commands.unused]));
+        if(writeRet) {
+            board.wait(100);
+            buttonState = board.readByte()[0];
+        } else {
+            console.log("Oops! Something error.");
+        }
         if(lastButtonState != buttonState) {
             console.log("Button State onChange value= " + buttonState);
         }
