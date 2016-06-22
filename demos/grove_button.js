@@ -4,6 +4,8 @@ var Board = GrovePi.board;
 var GenericDigitalInputSensor = GrovePi.sensors.DigitalInput;
 
 var board;
+var button = 2;                 // Connect the Grove Button to digital port D2               
+
 
 function start() {
     console.log('starting...');
@@ -17,19 +19,22 @@ function start() {
             if(res) {
                 console.log('GrovePi Version : ' + board.version());
                 
-                // Connect the Grove Button to digital port D2               
-                var groveButton = new GenericDigitalInputSensor(2);
-
-                // Grove Button
-                console.log('Grove Button (start watch)');
-                groveButton.on('change', function(res) {
-                    console.log('Grove Button onChange value=' + res);
-                });
-                groveButton.watch();
             }
         }
     });
     board.init();
+
+    board.pinMode(led,"output");
+    var buttonState = 0, lastButtonState = 0;
+
+    setInterval(function() {
+        lastButtonState = buttonState;
+        buttonState = board.writeBytes(Commands.dRead.concat([button, Commands.unused, Commands.unused]));
+        if(lastButtonState != buttonState) {
+            console.log("Button State onChange value= " + buttonState);
+        }
+    }, 20);
+
 }
 
 function onExit(err) {
