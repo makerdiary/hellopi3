@@ -24,7 +24,7 @@ function start() {
     });
     board.init();
 
-    board.pinMode(led,"output");
+    board.pinMode(button,"input");
     var buttonState = 0, lastButtonState = 0;
 
     setInterval(function() {
